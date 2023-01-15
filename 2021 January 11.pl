@@ -9,10 +9,8 @@ solve(A):-
 % verbose(Goal) is true if Goal can be proved. Moreover it prints the subgoals that it's trying to prove.
 verbose(true):-!.
 verbose((A,B)):-!,
-    write('Solving: '), write(A), nl,
-    solve(A),
-    write('Solving: '), write(B), nl,
-    solve(B).
+    verbose(A),
+    verbose(B).
 verbose(A):-
     clause(A,B),
     write('Solving: '), write(A), nl,
